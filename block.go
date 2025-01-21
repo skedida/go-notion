@@ -70,7 +70,8 @@ type blockDTO struct {
 	Unsupported      *UnsupportedBlock      `json:"unsupported,omitempty"`
 }
 
-type baseBlock struct {
+type BaseBlock struct {
+	Custom_id      string
 	id             string
 	parent         Parent
 	createdTime    time.Time
@@ -82,40 +83,40 @@ type baseBlock struct {
 }
 
 // ID returns the identifier (UUIDv4) for the block.
-func (b baseBlock) ID() string {
+func (b BaseBlock) ID() string {
 	return b.id
 }
 
-func (b baseBlock) CreatedTime() time.Time {
+func (b BaseBlock) CreatedTime() time.Time {
 	return b.createdTime
 }
 
-func (b baseBlock) CreatedBy() BaseUser {
+func (b BaseBlock) CreatedBy() BaseUser {
 	return b.createdBy
 }
 
-func (b baseBlock) LastEditedTime() time.Time {
+func (b BaseBlock) LastEditedTime() time.Time {
 	return b.lastEditedTime
 }
 
-func (b baseBlock) LastEditedBy() BaseUser {
+func (b BaseBlock) LastEditedBy() BaseUser {
 	return b.lastEditedBy
 }
 
-func (b baseBlock) HasChildren() bool {
+func (b BaseBlock) HasChildren() bool {
 	return b.hasChildren
 }
 
-func (b baseBlock) Archived() bool {
+func (b BaseBlock) Archived() bool {
 	return b.archived
 }
 
-func (b baseBlock) Parent() Parent {
+func (b BaseBlock) Parent() Parent {
 	return b.parent
 }
 
 type ParagraphBlock struct {
-	baseBlock
+	BaseBlock
 
 	RichText []RichText `json:"rich_text"`
 	Children []Block    `json:"children,omitempty"`
@@ -137,7 +138,7 @@ func (b ParagraphBlock) MarshalJSON() ([]byte, error) {
 }
 
 type BulletedListItemBlock struct {
-	baseBlock
+	BaseBlock
 
 	RichText []RichText `json:"rich_text"`
 	Children []Block    `json:"children,omitempty"`
@@ -159,7 +160,7 @@ func (b BulletedListItemBlock) MarshalJSON() ([]byte, error) {
 }
 
 type NumberedListItemBlock struct {
-	baseBlock
+	BaseBlock
 
 	RichText []RichText `json:"rich_text"`
 	Children []Block    `json:"children,omitempty"`
@@ -181,7 +182,7 @@ func (b NumberedListItemBlock) MarshalJSON() ([]byte, error) {
 }
 
 type QuoteBlock struct {
-	baseBlock
+	BaseBlock
 
 	RichText []RichText `json:"rich_text"`
 	Children []Block    `json:"children,omitempty"`
@@ -203,7 +204,7 @@ func (b QuoteBlock) MarshalJSON() ([]byte, error) {
 }
 
 type ToggleBlock struct {
-	baseBlock
+	BaseBlock
 
 	RichText []RichText `json:"rich_text"`
 	Children []Block    `json:"children,omitempty"`
@@ -225,7 +226,7 @@ func (b ToggleBlock) MarshalJSON() ([]byte, error) {
 }
 
 type TemplateBlock struct {
-	baseBlock
+	BaseBlock
 
 	RichText []RichText `json:"rich_text"`
 	Children []Block    `json:"children,omitempty"`
@@ -246,7 +247,7 @@ func (b TemplateBlock) MarshalJSON() ([]byte, error) {
 }
 
 type Heading1Block struct {
-	baseBlock
+	BaseBlock
 
 	RichText     []RichText `json:"rich_text"`
 	Children     []Block    `json:"children,omitempty"`
@@ -269,7 +270,7 @@ func (b Heading1Block) MarshalJSON() ([]byte, error) {
 }
 
 type Heading2Block struct {
-	baseBlock
+	BaseBlock
 
 	RichText     []RichText `json:"rich_text"`
 	Children     []Block    `json:"children,omitempty"`
@@ -292,7 +293,7 @@ func (b Heading2Block) MarshalJSON() ([]byte, error) {
 }
 
 type Heading3Block struct {
-	baseBlock
+	BaseBlock
 
 	RichText     []RichText `json:"rich_text"`
 	Children     []Block    `json:"children,omitempty"`
@@ -315,7 +316,7 @@ func (b Heading3Block) MarshalJSON() ([]byte, error) {
 }
 
 type ToDoBlock struct {
-	baseBlock
+	BaseBlock
 
 	RichText []RichText `json:"rich_text"`
 	Children []Block    `json:"children,omitempty"`
@@ -338,7 +339,7 @@ func (b ToDoBlock) MarshalJSON() ([]byte, error) {
 }
 
 type ChildPageBlock struct {
-	baseBlock
+	BaseBlock
 
 	Title string `json:"title"`
 }
@@ -358,7 +359,7 @@ func (b ChildPageBlock) MarshalJSON() ([]byte, error) {
 }
 
 type ChildDatabaseBlock struct {
-	baseBlock
+	BaseBlock
 
 	Title string `json:"title"`
 }
@@ -378,7 +379,7 @@ func (b ChildDatabaseBlock) MarshalJSON() ([]byte, error) {
 }
 
 type CalloutBlock struct {
-	baseBlock
+	BaseBlock
 
 	RichText []RichText `json:"rich_text"`
 	Children []Block    `json:"children,omitempty"`
@@ -401,7 +402,7 @@ func (b CalloutBlock) MarshalJSON() ([]byte, error) {
 }
 
 type CodeBlock struct {
-	baseBlock
+	BaseBlock
 
 	RichText []RichText `json:"rich_text"`
 	Children []Block    `json:"children,omitempty"`
@@ -424,7 +425,7 @@ func (b CodeBlock) MarshalJSON() ([]byte, error) {
 }
 
 type EmbedBlock struct {
-	baseBlock
+	BaseBlock
 
 	URL string `json:"url"`
 }
@@ -444,7 +445,7 @@ func (b EmbedBlock) MarshalJSON() ([]byte, error) {
 }
 
 type ImageBlock struct {
-	baseBlock
+	BaseBlock
 
 	Type     FileType      `json:"type"`
 	File     *FileFile     `json:"file,omitempty"`
@@ -467,7 +468,7 @@ func (b ImageBlock) MarshalJSON() ([]byte, error) {
 }
 
 type AudioBlock struct {
-	baseBlock
+	BaseBlock
 
 	Type     FileType      `json:"type"`
 	File     *FileFile     `json:"file,omitempty"`
@@ -490,7 +491,7 @@ func (b AudioBlock) MarshalJSON() ([]byte, error) {
 }
 
 type VideoBlock struct {
-	baseBlock
+	BaseBlock
 
 	Type     FileType      `json:"type"`
 	File     *FileFile     `json:"file,omitempty"`
@@ -513,7 +514,7 @@ func (b VideoBlock) MarshalJSON() ([]byte, error) {
 }
 
 type FileBlock struct {
-	baseBlock
+	BaseBlock
 
 	Type     FileType      `json:"type"`
 	File     *FileFile     `json:"file,omitempty"`
@@ -536,7 +537,7 @@ func (b FileBlock) MarshalJSON() ([]byte, error) {
 }
 
 type PDFBlock struct {
-	baseBlock
+	BaseBlock
 
 	Type     FileType      `json:"type"`
 	File     *FileFile     `json:"file,omitempty"`
@@ -559,7 +560,7 @@ func (b PDFBlock) MarshalJSON() ([]byte, error) {
 }
 
 type BookmarkBlock struct {
-	baseBlock
+	BaseBlock
 
 	URL     string     `json:"url"`
 	Caption []RichText `json:"caption,omitempty"`
@@ -580,7 +581,7 @@ func (b BookmarkBlock) MarshalJSON() ([]byte, error) {
 }
 
 type EquationBlock struct {
-	baseBlock
+	BaseBlock
 
 	Expression string `json:"expression"`
 }
@@ -600,7 +601,7 @@ func (b EquationBlock) MarshalJSON() ([]byte, error) {
 }
 
 type ColumnListBlock struct {
-	baseBlock
+	BaseBlock
 
 	Children []ColumnBlock `json:"children,omitempty"`
 }
@@ -620,7 +621,7 @@ func (b ColumnListBlock) MarshalJSON() ([]byte, error) {
 }
 
 type ColumnBlock struct {
-	baseBlock
+	BaseBlock
 
 	Children []Block `json:"children,omitempty"`
 }
@@ -640,7 +641,7 @@ func (b ColumnBlock) MarshalJSON() ([]byte, error) {
 }
 
 type TableBlock struct {
-	baseBlock
+	BaseBlock
 
 	TableWidth      int     `json:"table_width"`
 	HasColumnHeader bool    `json:"has_column_header"`
@@ -663,7 +664,7 @@ func (b TableBlock) MarshalJSON() ([]byte, error) {
 }
 
 type TableRowBlock struct {
-	baseBlock
+	BaseBlock
 
 	Cells [][]RichText `json:"cells"`
 }
@@ -683,7 +684,7 @@ func (b TableRowBlock) MarshalJSON() ([]byte, error) {
 }
 
 type LinkPreviewBlock struct {
-	baseBlock
+	BaseBlock
 
 	URL string `json:"url"`
 }
@@ -703,7 +704,7 @@ func (b LinkPreviewBlock) MarshalJSON() ([]byte, error) {
 }
 
 type LinkToPageBlock struct {
-	baseBlock
+	BaseBlock
 
 	Type       LinkToPageType `json:"type"`
 	PageID     string         `json:"page_id,omitempty"`
@@ -732,7 +733,7 @@ const (
 )
 
 type SyncedBlock struct {
-	baseBlock
+	BaseBlock
 
 	SyncedFrom *SyncedFrom `json:"synced_from"`
 	Children   []Block     `json:"children,omitempty"`
@@ -762,7 +763,7 @@ type SyncedFromType string
 const SyncedFromTypeBlockID SyncedFromType = "block_id"
 
 type DividerBlock struct {
-	baseBlock
+	BaseBlock
 }
 
 // MarshalJSON implements json.Marshaler.
@@ -780,7 +781,7 @@ func (b DividerBlock) MarshalJSON() ([]byte, error) {
 }
 
 type TableOfContentsBlock struct {
-	baseBlock
+	BaseBlock
 
 	Color Color `json:"color,omitempty"`
 }
@@ -800,7 +801,7 @@ func (b TableOfContentsBlock) MarshalJSON() ([]byte, error) {
 }
 
 type BreadcrumbBlock struct {
-	baseBlock
+	BaseBlock
 }
 
 // MarshalJSON implements json.Marshaler.
@@ -818,7 +819,7 @@ func (b BreadcrumbBlock) MarshalJSON() ([]byte, error) {
 }
 
 type UnsupportedBlock struct {
-	baseBlock
+	BaseBlock
 }
 
 // MarshalJSON implements json.Marshaler.
@@ -918,7 +919,7 @@ func (resp *BlockChildrenResponse) UnmarshalJSON(b []byte) error {
 }
 
 func (dto blockDTO) Block() (Block, error) {
-	baseBlock := baseBlock{
+	baseBlock := BaseBlock{
 		id:          dto.ID,
 		hasChildren: dto.HasChildren,
 	}
@@ -949,103 +950,103 @@ func (dto blockDTO) Block() (Block, error) {
 
 	switch dto.Type {
 	case BlockTypeParagraph:
-		dto.Paragraph.baseBlock = baseBlock
+		dto.Paragraph.BaseBlock = baseBlock
 		return dto.Paragraph, nil
 	case BlockTypeHeading1:
-		dto.Heading1.baseBlock = baseBlock
+		dto.Heading1.BaseBlock = baseBlock
 		return dto.Heading1, nil
 	case BlockTypeHeading2:
-		dto.Heading2.baseBlock = baseBlock
+		dto.Heading2.BaseBlock = baseBlock
 		return dto.Heading2, nil
 	case BlockTypeHeading3:
-		dto.Heading3.baseBlock = baseBlock
+		dto.Heading3.BaseBlock = baseBlock
 		return dto.Heading3, nil
 	case BlockTypeBulletedListItem:
-		dto.BulletedListItem.baseBlock = baseBlock
+		dto.BulletedListItem.BaseBlock = baseBlock
 		return dto.BulletedListItem, nil
 	case BlockTypeNumberedListItem:
-		dto.NumberedListItem.baseBlock = baseBlock
+		dto.NumberedListItem.BaseBlock = baseBlock
 		return dto.NumberedListItem, nil
 	case BlockTypeToDo:
-		dto.ToDo.baseBlock = baseBlock
+		dto.ToDo.BaseBlock = baseBlock
 		return dto.ToDo, nil
 	case BlockTypeToggle:
-		dto.Toggle.baseBlock = baseBlock
+		dto.Toggle.BaseBlock = baseBlock
 		return dto.Toggle, nil
 	case BlockTypeChildPage:
-		dto.ChildPage.baseBlock = baseBlock
+		dto.ChildPage.BaseBlock = baseBlock
 		return dto.ChildPage, nil
 	case BlockTypeChildDatabase:
-		dto.ChildDatabase.baseBlock = baseBlock
+		dto.ChildDatabase.BaseBlock = baseBlock
 		return dto.ChildDatabase, nil
 	case BlockTypeCallout:
-		dto.Callout.baseBlock = baseBlock
+		dto.Callout.BaseBlock = baseBlock
 		return dto.Callout, nil
 	case BlockTypeQuote:
-		dto.Quote.baseBlock = baseBlock
+		dto.Quote.BaseBlock = baseBlock
 		return dto.Quote, nil
 	case BlockTypeCode:
-		dto.Code.baseBlock = baseBlock
+		dto.Code.BaseBlock = baseBlock
 		return dto.Code, nil
 	case BlockTypeEmbed:
-		dto.Embed.baseBlock = baseBlock
+		dto.Embed.BaseBlock = baseBlock
 		return dto.Embed, nil
 	case BlockTypeImage:
-		dto.Image.baseBlock = baseBlock
+		dto.Image.BaseBlock = baseBlock
 		return dto.Image, nil
 	case BlockTypeAudio:
-		dto.Audio.baseBlock = baseBlock
+		dto.Audio.BaseBlock = baseBlock
 		return dto.Audio, nil
 	case BlockTypeVideo:
-		dto.Video.baseBlock = baseBlock
+		dto.Video.BaseBlock = baseBlock
 		return dto.Video, nil
 	case BlockTypeFile:
-		dto.File.baseBlock = baseBlock
+		dto.File.BaseBlock = baseBlock
 		return dto.File, nil
 	case BlockTypePDF:
-		dto.PDF.baseBlock = baseBlock
+		dto.PDF.BaseBlock = baseBlock
 		return dto.PDF, nil
 	case BlockTypeBookmark:
-		dto.Bookmark.baseBlock = baseBlock
+		dto.Bookmark.BaseBlock = baseBlock
 		return dto.Bookmark, nil
 	case BlockTypeEquation:
-		dto.Equation.baseBlock = baseBlock
+		dto.Equation.BaseBlock = baseBlock
 		return dto.Equation, nil
 	case BlockTypeDivider:
-		dto.Divider.baseBlock = baseBlock
+		dto.Divider.BaseBlock = baseBlock
 		return dto.Divider, nil
 	case BlockTypeTableOfContents:
-		dto.TableOfContents.baseBlock = baseBlock
+		dto.TableOfContents.BaseBlock = baseBlock
 		return dto.TableOfContents, nil
 	case BlockTypeBreadCrumb:
-		dto.Breadcrumb.baseBlock = baseBlock
+		dto.Breadcrumb.BaseBlock = baseBlock
 		return dto.Breadcrumb, nil
 	case BlockTypeColumnList:
-		dto.ColumnList.baseBlock = baseBlock
+		dto.ColumnList.BaseBlock = baseBlock
 		return dto.ColumnList, nil
 	case BlockTypeColumn:
-		dto.Column.baseBlock = baseBlock
+		dto.Column.BaseBlock = baseBlock
 		return dto.Column, nil
 	case BlockTypeTable:
-		dto.Table.baseBlock = baseBlock
+		dto.Table.BaseBlock = baseBlock
 		return dto.Table, nil
 	case BlockTypeTableRow:
-		dto.TableRow.baseBlock = baseBlock
+		dto.TableRow.BaseBlock = baseBlock
 		return dto.TableRow, nil
 	case BlockTypeLinkPreview:
-		dto.LinkPreview.baseBlock = baseBlock
+		dto.LinkPreview.BaseBlock = baseBlock
 		return dto.LinkPreview, nil
 	case BlockTypeLinkToPage:
-		dto.LinkToPage.baseBlock = baseBlock
+		dto.LinkToPage.BaseBlock = baseBlock
 		return dto.LinkToPage, nil
 	case BlockTypeSyncedBlock:
-		dto.SyncedBlock.baseBlock = baseBlock
+		dto.SyncedBlock.BaseBlock = baseBlock
 		return dto.SyncedBlock, nil
 	case BlockTypeTemplate:
-		dto.Template.baseBlock = baseBlock
+		dto.Template.BaseBlock = baseBlock
 		return dto.Template, nil
 	case BlockTypeUnsupported:
-		dto.Unsupported.baseBlock = baseBlock
+		dto.Unsupported.BaseBlock = baseBlock
 		return dto.Unsupported, nil
 	default:
 		// When this case is selected, the block type is supported in the Notion
