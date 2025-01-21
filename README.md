@@ -1,13 +1,13 @@
 # go-notion
 
 [![GitHub tag (latest
-SemVer)](https://img.shields.io/github/v/tag/dstotijn/go-notion?label=go%20module)](https://github.com/dstotijn/go-notion/tags)
-[![Test](https://github.com/dstotijn/go-notion/actions/workflows/test.yaml/badge.svg)](https://github.com/dstotijn/go-notion/actions/workflows/test.yaml)
+SemVer)](https://img.shields.io/github/v/tag/skedida/go-notion?label=go%20module)](https://github.com/skedida/go-notion/tags)
+[![Test](https://github.com/skedida/go-notion/actions/workflows/test.yaml/badge.svg)](https://github.com/skedida/go-notion/actions/workflows/test.yaml)
 [![Go
-Reference](https://pkg.go.dev/badge/github.com/dstotijn/go-notion.svg)](https://pkg.go.dev/github.com/dstotijn/go-notion)
-[![GitHub](https://img.shields.io/github/license/dstotijn/go-notion)](LICENSE)
+Reference](https://pkg.go.dev/badge/github.com/skedida/go-notion.svg)](https://pkg.go.dev/github.com/skedida/go-notion)
+[![GitHub](https://img.shields.io/github/license/skedida/go-notion)](LICENSE)
 [![Go Report
-Card](https://goreportcard.com/badge/github.com/dstotijn/go-notion)](https://goreportcard.com/report/github.com/dstotijn/go-notion)
+Card](https://goreportcard.com/badge/github.com/skedida/go-notion)](https://goreportcard.com/report/github.com/skedida/go-notion)
 
 **go-notion** is a client for the [Notion
 API](https://developers.notion.com/reference), written in
@@ -22,73 +22,73 @@ as of September 4, 2022:
 <summary>Databases</summary>
 
 - [x] [Query a
-      database](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.QueryDatabase)
+      database](https://pkg.go.dev/github.com/skedida/go-notion#Client.QueryDatabase)
 - [x] [Create a
-      database](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.CreateDatabase)
+      database](https://pkg.go.dev/github.com/skedida/go-notion#Client.CreateDatabase)
 - [x] [Update
-      database](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.UpdateDatabase)
+      database](https://pkg.go.dev/github.com/skedida/go-notion#Client.UpdateDatabase)
 - [x] [Retrieve a
-    database](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.FindDatabaseByID)
+    database](https://pkg.go.dev/github.com/skedida/go-notion#Client.FindDatabaseByID)
 </details>
 
 <details>
 <summary>Pages</summary>
 
 - [x] [Retrieve a
-      page](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.FindPageByID)
+      page](https://pkg.go.dev/github.com/skedida/go-notion#Client.FindPageByID)
 - [x] [Create a
-      page](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.CreatePage)
+      page](https://pkg.go.dev/github.com/skedida/go-notion#Client.CreatePage)
 - [x] [Update
-      page](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.UpdatePage)
+      page](https://pkg.go.dev/github.com/skedida/go-notion#Client.UpdatePage)
 - [x] [Retrieve a page
-    property](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.FindPagePropertyByID)
+    property](https://pkg.go.dev/github.com/skedida/go-notion#Client.FindPagePropertyByID)
 </details>
 
 <details>
 <summary>Blocks</summary>
 
 - [x] [Retrieve a
-      block](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.FindBlockByID)
+      block](https://pkg.go.dev/github.com/skedida/go-notion#Client.FindBlockByID)
 - [x] [Update
-      block](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.UpdateBlock)
+      block](https://pkg.go.dev/github.com/skedida/go-notion#Client.UpdateBlock)
 - [x] [Retrieve block
-      children](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.FindBlockChildrenByID)
+      children](https://pkg.go.dev/github.com/skedida/go-notion#Client.FindBlockChildrenByID)
 - [x] [Append block
-      children](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.AppendBlockChildren)
+      children](https://pkg.go.dev/github.com/skedida/go-notion#Client.AppendBlockChildren)
 - [x] [Delete
-    block](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.DeleteBlock)
+    block](https://pkg.go.dev/github.com/skedida/go-notion#Client.DeleteBlock)
 </details>
 
 <details>
 <summary>Users</summary>
 
 - [x] [Retrieve a
-      user](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.FindUserByID)
+      user](https://pkg.go.dev/github.com/skedida/go-notion#Client.FindUserByID)
 - [x] [List all
-      users](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.ListUsers)
+      users](https://pkg.go.dev/github.com/skedida/go-notion#Client.ListUsers)
 - [x] [Retrieve your token's bot
-    user](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.FindCurrentUser)
+    user](https://pkg.go.dev/github.com/skedida/go-notion#Client.FindCurrentUser)
 </details>
 
 <details>
 <summary>Search</summary>
 
-- [x] [Search](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.Search)
+- [x] [Search](https://pkg.go.dev/github.com/skedida/go-notion#Client.Search)
 </details>
 
 <details>
 <summary>Comments</summary>
 
 - [x] [Retrieve
-      comments](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.FindCommentsByBlockID)
+      comments](https://pkg.go.dev/github.com/skedida/go-notion#Client.FindCommentsByBlockID)
 - [x] [Create a
-    comment](https://pkg.go.dev/github.com/dstotijn/go-notion#Client.CreateComment)
+    comment](https://pkg.go.dev/github.com/skedida/go-notion#Client.CreateComment)
 </details>
 
 ## Installation
 
 ```sh
-$ go get github.com/dstotijn/go-notion
+$ go get github.com/skedida/go-notion
 ```
 
 ## Usage
@@ -97,7 +97,7 @@ To obtain an API key, follow Notion’s [getting started
 guide](https://developers.notion.com/docs/getting-started).
 
 ```go
-import "github.com/dstotijn/go-notion"
+import "github.com/skedida/go-notion"
 
 (...)
 
@@ -110,7 +110,7 @@ if err != nil {
 ```
 
 👉 Check out the docs on
-[pkg.go.dev](https://pkg.go.dev/github.com/dstotijn/go-notion) for a complete
+[pkg.go.dev](https://pkg.go.dev/github.com/skedida/go-notion) for a complete
 reference and the [examples](/examples) directory for more example code.
 
 ## Status
