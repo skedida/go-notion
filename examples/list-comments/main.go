@@ -11,8 +11,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/dstotijn/go-notion"
 	"github.com/sanity-io/litter"
+	"github.com/skedida/go-notion"
 )
 
 type httpTransport struct {

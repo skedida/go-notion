@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dstotijn/go-notion"
 	"github.com/google/go-cmp/cmp"
+	"github.com/skedida/go-notion"
 )
 
 func mustParseDateTime(value string) notion.DateTime {
