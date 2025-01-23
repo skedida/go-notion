@@ -71,7 +71,8 @@ type blockDTO struct {
 }
 
 type BaseBlock struct {
-	Custom_id      string `json:"-"`
+	// Custom metadata that can be used by clients of go-notion. It is not part of the Notion API.
+	CustomMetadata map[string]interface{} `json:"-"`
 	id             string
 	parent         Parent
 	createdTime    time.Time
