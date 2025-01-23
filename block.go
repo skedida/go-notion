@@ -71,7 +71,7 @@ type blockDTO struct {
 }
 
 type BaseBlock struct {
-	Custom_id      string
+	Custom_id      string `json:"-"`
 	id             string
 	parent         Parent
 	createdTime    time.Time
