@@ -70,9 +70,14 @@ type blockDTO struct {
 	Unsupported      *UnsupportedBlock      `json:"unsupported,omitempty"`
 }
 
+// CustomMetadata is used to store custom metadata that can be used by clients of go-notion.
+// It is ignored when sent to the API.
+type CustomMetadata interface {
+}
+
 type BaseBlock struct {
 	// Custom metadata that can be used by clients of go-notion. It is not part of the Notion API and ignored when sent to the API.
-	CustomMetadata map[string]interface{} `json:"-"`
+	CustomMetadata CustomMetadata `json:"-"`
 	id             string
 	parent         Parent
 	createdTime    time.Time

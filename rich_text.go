@@ -2,9 +2,9 @@ package notion
 
 type RichText struct {
 	// Custom metadata that can be used by clients of go-notion. It is not part of the Notion API and ignored when sent to the API.
-	CustomMetadata map[string]interface{} `json:"-"`
-	Type           RichTextType           `json:"type,omitempty"`
-	Annotations    *Annotations           `json:"annotations,omitempty"`
+	CustomMetadata CustomMetadata `json:"-"`
+	Type           RichTextType   `json:"type,omitempty"`
+	Annotations    *Annotations   `json:"annotations,omitempty"`
 
 	PlainText string    `json:"plain_text,omitempty"`
 	HRef      *string   `json:"href,omitempty"`
