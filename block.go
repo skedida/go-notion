@@ -77,15 +77,15 @@ type CustomMetadata interface {
 
 type BaseBlock struct {
 	// Custom metadata that can be used by clients of go-notion. It is not part of the Notion API and ignored when sent to the API.
-	CustomMetadata CustomMetadata `json:"-"`
-	id             string
-	parent         Parent
-	createdTime    time.Time
-	createdBy      BaseUser
-	lastEditedTime time.Time
-	lastEditedBy   BaseUser
-	hasChildren    bool
-	archived       bool
+	CustomMetadata      CustomMetadata `json:"-"`
+	id                  string
+	parent              Parent
+	createdTime         time.Time
+	createdBy           BaseUser
+	lastEditedTime      time.Time
+	lastEditedBy        BaseUser
+	HasChildrenProperty bool
+	archived            bool
 }
 
 // ID returns the identifier (UUIDv4) for the block.
@@ -110,7 +110,7 @@ func (b BaseBlock) LastEditedBy() BaseUser {
 }
 
 func (b BaseBlock) HasChildren() bool {
-	return b.hasChildren
+	return b.HasChildrenProperty
 }
 
 func (b BaseBlock) Archived() bool {
@@ -926,8 +926,8 @@ func (resp *BlockChildrenResponse) UnmarshalJSON(b []byte) error {
 
 func (dto blockDTO) Block() (Block, error) {
 	baseBlock := BaseBlock{
-		id:          dto.ID,
-		hasChildren: dto.HasChildren,
+		id:                  dto.ID,
+		HasChildrenProperty: dto.HasChildren,
 	}
 
 	if dto.Parent != nil {
