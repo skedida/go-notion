@@ -78,13 +78,13 @@ type CustomMetadata interface {
 type BaseBlock struct {
 	// Custom metadata that can be used by clients of go-notion. It is not part of the Notion API and ignored when sent to the API.
 	CustomMetadata      CustomMetadata `json:"-"`
-	IdProperty          string
-	ParentProperty      Parent
+	IdProperty          string         `json:"-"`
+	ParentProperty      Parent         `json:"-"`
 	createdTime         time.Time
 	createdBy           BaseUser
 	lastEditedTime      time.Time
 	lastEditedBy        BaseUser
-	HasChildrenProperty bool
+	HasChildrenProperty bool `json:"-"`
 	archived            bool
 }
 
